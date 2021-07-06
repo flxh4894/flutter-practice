@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "990386483861",
+    "project_id": "injewelme-new",
+    "storage_bucket": "injewelme-new.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990386483861:android:70865caa029f015790a19c",
+        "android_client_info": {
+          "package_name": "com.example.bloc_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "990386483861-5g2qac3cjj9gt8q9i3ep839n45b2vl64.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-k9C_NYpbf_TLI2NVOmqmOnazF5dMrKU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "990386483861-5g2qac3cjj9gt8q9i3ep839n45b2vl64.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
