@@ -1,8 +1,10 @@
-import 'package:bloc_test/page/bloc_count.dart';
-import 'package:bloc_test/page/user_page.dart';
+import 'package:bloc_test/bloc/bloc_observer.dart';
+import 'package:bloc_test/page/app.dart';
+import 'package:bloc_test/page/app_init.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print("Handling a background message: ${message.messageId}");
@@ -11,9 +13,8 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  /*
-  * background
-  * */
+
+  /// Background FCM 설정
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
     alert: true,
@@ -21,25 +22,8 @@ void main() async {
     sound: true
   );
 
-  runApp(MyApp());
-}
-
-
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        home: UserPage()
-    );
-  }
+  /// Bloc Observer 등록
+  Bloc.observer = LoadBlocObserver();
+  runApp(AppInitializer(childWidget: MyApp()));
 }
 

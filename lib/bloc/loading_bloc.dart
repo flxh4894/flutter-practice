@@ -7,15 +7,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 * */
 class LoadingBloc extends Bloc<LoadingEvent, LoadingBlocState> {
 
-  LoadingBloc() : super(LoadingBlocState( loadingState: LoadingState.COMPLETE) );
+  LoadingBloc() : super(LoadingBlocState( loadingState: LoadingState.COMPLETE) ){
+    print('로딩은 이 때 씁니다');
+  }
+
 
   @override
   Stream<LoadingBlocState> mapEventToState(LoadingEvent event) async* {
     if(event is IsError){
       yield LoadingBlocState(loadingState: LoadingState.ERROR);
     } else if (event is IsLoading) {
+      print('로딩중...');
       yield LoadingBlocState(loadingState: LoadingState.LOADING);
     } else if (event is IsComplete) {
+      print('로딩완료!');
       yield LoadingBlocState(loadingState: LoadingState.COMPLETE);
     }
   }

@@ -1,9 +1,37 @@
+import 'package:bloc_test/model/gift.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BlocCubit extends Cubit<int>{
-  BlocCubit() : super(0);
+part 'bloc_cubit.g.dart';
 
-  void increment() => emit(state + 1);
-  void decrement() => emit(state - 1);
+/*
+* Cubit
+* */
+class GiftCubit extends Cubit<GiftCubitState> {
+  GiftCubit() : super(GiftCubitState(giftList: <Gift>[], useUserNm: ''));
 
+  void printGift() {
+    print(state.giftList);
+    emit(state);
+  }
+
+  void printUseUser() {
+    print(state.useUserNm);
+  }
+
+  void changeUseUser(String name) {
+    emit(GiftCubitState(giftList: <Gift>[], useUserNm: name));
+    print(state.useUserNm);
+  }
+}
+
+/*
+* state
+* */
+@CopyWith()
+class GiftCubitState {
+  final List<Gift> giftList;
+  final String useUserNm;
+
+  GiftCubitState({required this.giftList, required this.useUserNm});
 }

@@ -1,11 +1,16 @@
+import 'package:bloc_test/bloc/bloc_cubit.dart';
 import 'package:bloc_test/bloc/user_bloc.dart';
 import 'package:bloc_test/model/user.dart';
 import 'package:bloc_test/page/bloc_count.dart';
+import 'package:bloc_test/page/cubit_page.dart';
 import 'package:bloc_test/page/firebase_page.dart';
+import 'package:bloc_test/page/gift_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class UserPage extends StatelessWidget {
+class HomePage extends StatelessWidget {
+  static String routePath = '/home';
+
   final TextEditingController _name = TextEditingController();
 
   @override
@@ -32,12 +37,17 @@ class UserPage extends StatelessWidget {
 
                   _infoText('Bloc Test'),
                   ElevatedButton(onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => BlocDisplayPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => GiftPage()));
                   }, child: Text('Bloc 페이지')),
+
+                  _infoText('Cubit Test'),
+                  ElevatedButton(onPressed: () {
+                    Navigator.pushNamed(context, '/cubit');
+                  }, child: Text('Cubit 페이지')),
 
                   _infoText('Samsung Health'),
                   ElevatedButton(onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => BlocDisplayPage()));
+                    Navigator.pushNamed(context, '/cubit' , arguments: BlocProvider(create: (_) => GiftCubit()));
                   }, child: Text('삼성헬스 페이지'))
 
 
