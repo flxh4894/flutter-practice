@@ -63,7 +63,8 @@ class HomePage extends StatelessWidget {
               FloatingActionButton(
                 heroTag: '1',
                 child: const Icon(Icons.add),
-                onPressed: () => context.read<UserBloc>().add(AddUser(user: new User(name: _name.text, age: 30))),
+                onPressed: () => ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('...??'),duration: Duration(seconds: 1),))
+                // onPressed: () => context.read<UserBloc>().add(AddUser(user: new User(name: _name.text, age: 30))),
               ),
               FloatingActionButton(
                 heroTag: '2',

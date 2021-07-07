@@ -19,7 +19,7 @@ class _AndroidSplashPageState extends State<AndroidSplashPage> {
   init() async {
     await Future.delayed(Duration(seconds: 1));
     final _authBloc = BlocProvider.of<AuthBloc>(context);
-    _authBloc.userLoginStatus();
+    _authBloc.userLoginStatus(context);
   }
 
   @override
