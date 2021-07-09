@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc/gift_bloc.dart';
 import 'package:bloc_test/bloc/loading_bloc.dart';
-import 'package:bloc_test/respository/gift_repository.dart';
+import 'package:bloc_test/repository/gift_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

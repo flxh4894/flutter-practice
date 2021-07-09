@@ -1,6 +1,7 @@
 import 'package:bloc_test/bloc/bloc_observer.dart';
 import 'package:bloc_test/page/app.dart';
 import 'package:bloc_test/page/app_init.dart';
+import 'package:bloc_test/service/service_locator.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,8 @@ void main() async {
 
   /// Bloc Observer 등록
   Bloc.observer = LoadBlocObserver();
+  // 싱글톤 셋업
+  singletonSetup();
   runApp(AppInitializer(childWidget: MyApp()));
 }
 

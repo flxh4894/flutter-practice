@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc/loading_bloc.dart';
 import 'package:bloc_test/model/gift.dart';
-import 'package:bloc_test/respository/gift_repository.dart';
+import 'package:bloc_test/repository/gift_repository.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';

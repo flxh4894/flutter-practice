@@ -1,10 +1,8 @@
 import 'package:bloc_test/bloc/bloc_cubit.dart';
 import 'package:bloc_test/bloc/user_bloc.dart';
 import 'package:bloc_test/model/user.dart';
-import 'package:bloc_test/page/bloc_count.dart';
 import 'package:bloc_test/page/cubit_page.dart';
 import 'package:bloc_test/page/firebase_page.dart';
-import 'package:bloc_test/page/gift_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,18 +35,28 @@ class HomePage extends StatelessWidget {
 
                   _infoText('Bloc Test'),
                   ElevatedButton(onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => GiftPage()));
+
                   }, child: Text('Bloc 페이지')),
 
                   _infoText('Cubit Test'),
                   ElevatedButton(onPressed: () {
-                    Navigator.pushNamed(context, '/cubit');
+                    Navigator.pushNamed(context, '/cubit', arguments: '안녕하세용?');
                   }, child: Text('Cubit 페이지')),
 
                   _infoText('Samsung Health'),
                   ElevatedButton(onPressed: () {
                     Navigator.pushNamed(context, '/cubit' , arguments: BlocProvider(create: (_) => GiftCubit()));
-                  }, child: Text('삼성헬스 페이지'))
+                  }, child: Text('삼성헬스 페이지')),
+
+                  _infoText('라우트 테스트'),
+                  ElevatedButton(onPressed: () {
+                  }, child: Text('삼성헬스 페이지')),
+
+                  _infoText('탭컨트롤러 테스트'),
+                  ElevatedButton(onPressed: () {
+                    Navigator.pushNamed(context, '/tab');
+                  }, child: Text('탭컨트롤러 페이지'))
+                  
 
 
                 ],
